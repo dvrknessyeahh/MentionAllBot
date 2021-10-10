@@ -16,10 +16,10 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("__**Saya adalah MentionAll Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau saluran \nKlik **/help** untuk informasi lebih lanjut__",
+  await event.reply("__**Saya adalah MentionAll Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__",
                     buttons=(
-                      [Button.url('📣 Channel', 'https://t.me/dvrknessmusicch'),
-                      Button.url('💬 Group', 'https://t.me/dvrknessmusicch')]
+                      [Button.url('📣 Chanel', 'https://t.me/dvrknessmusicch'),
+                      Button.url('💬 Grup', 'https://t.me/dvrknessmusicch')]
                     ),
                     link_preview=False
                    )
@@ -28,8 +28,8 @@ async def help(event):
   helptext = "**Menu Bantuan dari MentionAll Bot**\n\nCMD: /mentionall\n__Anda dapat menggunakan perintah ini dengan teks apa yang ingin Anda sebutkan orang lain.__\n`Contoh: /mentionall Apakabar Semuanya!`\n__Anda dapat memberikan perintah ini sebagai balasan untuk pesan apa pun. Bot akan menandai pengguna ke pesan balasan itu__."
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('📣 Channel', 'https://t.me/dvrknessmusicch'),
-                      Button.url('💬 Group', 'https://t.me/dvrknessmusicch')]
+                      [Button.url('📣 Chanel', 'https://t.me/dvrknessmusicch'),
+                      Button.url('💬 Grup', 'https://t.me/dvrknessmusicch')]
                     ),
                     link_preview=False
                    )
@@ -37,7 +37,7 @@ async def help(event):
 @client.on(events.NewMessage(pattern="^/mentionall ?(.*)"))
 async def mentionall(event):
   if event.is_private:
-    return await event.respond("__Perintah ini dapat digunakan dalam grup dan saluran!__")
+    return await event.respond("__Perintah ini dapat digunakan dalam grup dan chanel!__")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
