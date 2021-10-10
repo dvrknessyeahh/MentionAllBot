@@ -16,20 +16,20 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("__**I'm MentionAll Bot**, I can mention almost all members in group or channel 👻\nClick **/help** for more information__\n\n Follow [@AnjanaMadu](https://github.com/AnjanaMadu) on Github",
+  await event.reply("__**Saya adalah MentionAll Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau saluran \nKlik **/help** untuk informasi lebih lanjut__",
                     buttons=(
-                      [Button.url('📣 Channel', 'https://t.me/harp_tech'),
-                      Button.url('📦 Source', 'https://github.com/AnjanaMadu/MentionAllBot')]
+                      [Button.url('📣 Channel', 'https://t.me/dvrknessmusicch'),
+                      Button.url('💬 Group', 'https://t.me/dvrknessmusicch')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Help Menu of MentionAllBot**\n\nCommand: /mentionall\n__You can use this command with text what you want to mention others.__\n`Example: /mentionall Good Morning!`\n__You can you this command as a reply to any message. Bot will tag users to that replied messsage__.\n\nFollow [@AnjanaMadu](https://github.com/AnjanaMadu) on Github"
+  helptext = "**Menu Bantuan dari MentionAll Bot**\n\nCMD: /mentionall\n__Anda dapat menggunakan perintah ini dengan teks apa yang ingin Anda sebutkan orang lain.__\n`Contoh: /mentionall Apakabar Semuanya!`\n__Anda dapat memberikan perintah ini sebagai balasan untuk pesan apa pun. Bot akan menandai pengguna ke pesan balasan itu__."
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('📣 Channel', 'https://t.me/harp_tech'),
-                      Button.url('📦 Source', 'https://github.com/AnjanaMadu/MentionAllBot')]
+                      [Button.url('📣 Channel', 'https://t.me/dvrknessmusicch'),
+                      Button.url('💬 Group', 'https://t.me/dvrknessmusicch')]
                     ),
                     link_preview=False
                    )
@@ -37,13 +37,13 @@ async def help(event):
 @client.on(events.NewMessage(pattern="^/mentionall ?(.*)"))
 async def mentionall(event):
   if event.is_private:
-    return await event.respond("__This command can be use in groups and channels!__")
+    return await event.respond("__Perintah ini dapat digunakan dalam grup dan saluran!__")
   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond("__Only admins can mention all!__")
+    return await event.respond("__Hanya admin yang boleh mention semua!__")
   
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -52,11 +52,11 @@ async def mentionall(event):
     mode = "text_on_reply"
     msg = event.reply_to_msg_id
     if msg == None:
-        return await event.respond("__I can't mention members for older messages! (messages which are sent before I'm added to group)__")
+        return await event.respond("__Saya tidak bisa menyebut anggota untuk pesan lama! (pesan yang dikirim sebelum saya ditambahkan ke grup)__")
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("__Give me one argument!__")
+    return await event.respond("__Beri aku satu argumen!__")
   else:
-    return await event.respond("__Reply to a message or give me some text to mention others!__")
+    return await event.respond("__Membalas pesan atau memberi saya beberapa teks untuk menyebutkan orang lain!__")
   
   if mode == "text_on_cmd":
     usrnum = 0
