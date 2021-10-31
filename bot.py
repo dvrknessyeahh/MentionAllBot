@@ -21,12 +21,12 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply(f"__👋🏻 Hallo **Saya adalah {bot_name} Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__\n\n 👩‍💻 Bot ini dikelola oleh @{owner_bot}",
+  await event.reply(f"__👋🏻 Hallo **Saya adalah {bot_name} Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__\n\n 👨‍💻💻 Bot ini dikelola oleh @{owner_bot}",
                     buttons=(
                       [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
                       [Button.url('📣 Chanel', url=f'https://t.me/{channel_updates}'),
                       Button.url('💬 Grup', url=f'https://t.me/{group_support}')],
-                      [Button.url('👩‍💻 Owner', url=f'https://t.me/{owner_bot}')]
+                      [Button.url('👨‍💻 Owner', url=f'https://t.me/{owner_bot}')]
                     ),
                     link_preview=False
                    )
@@ -38,7 +38,7 @@ async def help(event):
                       [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
                       [Button.url('📣 Chanel', url=f'https://t.me/{channel_updates}'),
                       Button.url('💬 Grup', url=f'https://t.me/{group_support}')],
-                      [Button.url('👩‍💻 Owner', url=f'https://t.me/{owner_bot}')]
+                      [Button.url('👨‍💻 Owner', url=f'https://t.me/{owner_bot}')]
                     ),
                     link_preview=False
                    )
