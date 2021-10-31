@@ -18,6 +18,7 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 async def start(event):
   await event.reply("__**Saya adalah MentionAll Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__",
                     buttons=(
+                      [Button.url('➕ Tambahkan saya ke Grup Anda ➕', 'https://t.me/unodvrknessbot?startgroup=true')],
                       [Button.url('📣 Chanel', 'https://t.me/DvrknessChannel'),
                       Button.url('💬 Grup', 'https://t.me/DvrknessSupportGroup')]
                     ),
@@ -28,6 +29,7 @@ async def help(event):
   helptext = "**Menu Bantuan dari MentionAll Bot**\n\nCMD: /mentionall\n__Anda dapat menggunakan perintah ini dengan teks apa yang ingin Anda sebutkan orang lain.__\n`Contoh: /mentionall Apakabar Semuanya!`\n__Anda dapat memberikan perintah ini sebagai balasan untuk pesan apa pun. Bot akan menandai pengguna ke pesan balasan itu__."
   await event.reply(helptext,
                     buttons=(
+                      [Button.url('➕ Tambahkan saya ke Grup Anda ➕', 'https://t.me/unodvrknessbot?startgroup=true')],
                       [Button.url('📣 Chanel', 'https://t.me/DvrknessChannel'),
                       Button.url('💬 Grup', 'https://t.me/DvrknessSupportGroup')]
                     ),
