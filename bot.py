@@ -25,7 +25,8 @@ async def start(event):
                     buttons=(
                       [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
                       [Button.url('📣 Chanel', url=f'https://t.me/{channel_updates}'),
-                      Button.url('💬 Grup', url=f'https://t.me/{group_support}')]
+                      Button.url('💬 Grup', url=f'https://t.me/{group_support}')],
+                      [Button.url('👩‍💻 Owner', url=f'https://t.me/{owner_bot}')]
                     ),
                     link_preview=False
                    )
@@ -36,7 +37,8 @@ async def help(event):
                     buttons=(
                       [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
                       [Button.url('📣 Chanel', url=f'https://t.me/{channel_updates}'),
-                      Button.url('💬 Grup', url=f'https://t.me/{group_support}')]
+                      Button.url('💬 Grup', url=f'https://t.me/{group_support}')],
+                      [Button.url('👩‍💻 Owner', url=f'https://t.me/{owner_bot}')]
                     ),
                     link_preview=False
                    )
