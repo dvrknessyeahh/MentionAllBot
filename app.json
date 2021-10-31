@@ -7,7 +7,7 @@
       "value": ""
     },
     "BOT_USERNAME": {
-      "description": "isi username bot mu.",
+      "description": "isi username bot mu jangan gunakan @.",
       "value": ""
     },
     "BOT_NAME": {
@@ -23,15 +23,15 @@
       "value": ""
     },
     "OWNER_BOT": {
-      "description": "isi username owner.",
+      "description": "isi username owner jangan gunakan @.",
       "value": ""
     },
     "CHANNEL_UPDATES": {
-      "description": "isi username channel updates.",
+      "description": "isi username channel updates jangan gunakan @.",
       "value": ""
     },
     "GROUP_SUPPORT": {
-      "description": "isi username group support.",
+      "description": "isi username group support jangan gunakan @.",
       "value": ""
     }
   },
