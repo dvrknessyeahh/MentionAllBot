@@ -12,26 +12,31 @@ LOGGER = logging.getLogger(__name__)
 api_id = int(os.environ.get("APP_ID"))
 api_hash = os.environ.get("API_HASH")
 bot_token = os.environ.get("TOKEN")
+bot_username = os.environ.get("BOT_USERNAME")
+channel_updates = os.environ.get("CHANNEL_UPDATES")
+group_support = os.environ.get("GROUP_SUPPORT")
+bot_name = os.environ.get("BOT_NAME")
+owner_bot = os.environ.get("OWNER_BOT")
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("__**Saya adalah MentionAll Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__",
+  await event.reply(f"__**Saya adalah {bot_name} Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__\n\n 👩‍💻 Bot ini dikelola oleh @{owner_bot}",
                     buttons=(
-                      [Button.url('➕ Tambahkan saya ke Grup Anda ➕', 'https://t.me/unodvrknessbot?startgroup=true')],
-                      [Button.url('📣 Chanel', 'https://t.me/DvrknessChannel'),
-                      Button.url('💬 Grup', 'https://t.me/DvrknessSupportGroup')]
+                      [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
+                      [Button.url('📣 Chanel', url=f'https://t.me/{channel_updates}'),
+                      Button.url('💬 Grup', url=f'https://t.me/{group_support}')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Menu Bantuan dari MentionAll Bot**\n\nCMD: /mentionall\n__Anda dapat menggunakan perintah ini dengan teks apa yang ingin Anda sebutkan orang lain.__\n`Contoh: /mentionall Apakabar Semuanya!`\n__Anda dapat memberikan perintah ini sebagai balasan untuk pesan apa pun. Bot akan menandai pengguna ke pesan balasan itu__."
+  helptext = f"**Menu Bantuan dari {bot_name} Bot**\n\nCMD: /mentionall\n__Anda dapat menggunakan perintah ini dengan teks apa yang ingin Anda sebutkan orang lain.__\n`Contoh: /mentionall Apakabar Semuanya!`\n__Anda dapat memberikan perintah ini sebagai balasan untuk pesan apa pun. Bot akan menandai pengguna ke pesan balasan itu__.\n\n 👩‍💻 Bot ini dikelola oleh @{owner_bot}"
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('➕ Tambahkan saya ke Grup Anda ➕', 'https://t.me/unodvrknessbot?startgroup=true')],
-                      [Button.url('📣 Chanel', 'https://t.me/DvrknessChannel'),
-                      Button.url('💬 Grup', 'https://t.me/DvrknessSupportGroup')]
+                      [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
+                      [Button.url('📣 Chanel', url=f'https://t.me/{channel_updates}'),
+                      Button.url('💬 Grup', url=f'https://t.me/{group_support}')]
                     ),
                     link_preview=False
                    )
