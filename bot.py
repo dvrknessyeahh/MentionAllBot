@@ -21,7 +21,7 @@ client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply(f"__👋🏻 Hallo {first_name}\n**Saya adalah {bot_name} Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__\n\n 👩‍💻 Bot ini dikelola oleh @{owner_bot}",
+  await event.reply(f"__👋🏻 Hallo **Saya adalah {bot_name} Bot**, Saya dapat menyebutkan hampir semua anggota di grup atau chanel \nKlik **/help** untuk informasi lebih lanjut__\n\n 👩‍💻 Bot ini dikelola oleh @{owner_bot}",
                     buttons=(
                       [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
                       [Button.url('📣 Chanel', url=f'https://t.me/{channel_updates}'),
@@ -31,7 +31,7 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = f"**Menu Bantuan dari {bot_name} Bot**\n\nCMD: /mentionall\n__Anda dapat menggunakan perintah ini dengan teks apa yang ingin Anda sebutkan orang lain.__\n`Contoh: /mentionall Apakabar Semuanya!`\n__Anda dapat memberikan perintah ini sebagai balasan untuk pesan apa pun. Bot akan menandai pengguna ke pesan balasan itu__.\n\n 👩‍💻 Bot ini dikelola oleh @{owner_bot}"
+  helptext = f"**Menu Bantuan dari {bot_name} Bot**\n\nCMD: /all\n__Anda dapat menggunakan perintah ini dengan teks apa yang ingin Anda sebutkan orang lain.__\n`Contoh: /all Apakabar Semuanya!`\n__Anda dapat memberikan perintah ini sebagai balasan untuk pesan apa pun. Bot akan menandai pengguna ke pesan balasan itu__.\n\n 👩‍💻 Bot ini dikelola oleh @{owner_bot}"
   await event.reply(helptext,
                     buttons=(
                       [Button.url('➕ Tambahkan saya ke Grup Anda ➕', url=f'https://t.me/{bot_username}?startgroup=true')],
@@ -41,7 +41,7 @@ async def help(event):
                     link_preview=False
                    )
   
-@client.on(events.NewMessage(pattern="^/mentionall ?(.*)"))
+@client.on(events.NewMessage(pattern="^/all ?(.*)"))
 async def mentionall(event):
   if event.is_private:
     return await event.respond("__Perintah ini dapat digunakan dalam grup dan chanel!__")
