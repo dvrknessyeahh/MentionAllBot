@@ -3,15 +3,35 @@
   "description": "A simple mention all for telegram.",
   "env": {
     "TOKEN": {
-      "description": "Enter bot token.",
+      "description": "token bot mu.",
+      "value": ""
+    },
+    "BOT_USERNAME": {
+      "description": "isi username bot mu.",
+      "value": ""
+    },
+    "BOT_NAME": {
+      "description": "isi nama bot mu.",
       "value": ""
     },
     "APP_ID": {
-      "description": "Get this value from my.telegram.org! Please do not steal.",
+      "description": "isi api id ambil di my.telegram.org.",
       "value": ""
     },
     "API_HASH": {
-      "description": "Get this value from my.telegram.org! Please do not steal.",
+      "description": "isi api hash ambil di my.telegram.org.",
+      "value": ""
+    },
+    "OWNER_BOT": {
+      "description": "isi username owner.",
+      "value": ""
+    },
+    "CHANNEL_UPDATES": {
+      "description": "isi username channel updates.",
+      "value": ""
+    },
+    "GROUP_SUPPORT": {
+      "description": "isi username group support.",
       "value": ""
     }
   },
